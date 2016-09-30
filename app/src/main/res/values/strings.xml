@@ -2,6 +2,6 @@
     <string name="app_name">NammaAuto</string>
     <string name="ikm">0 km</string>
     <string name="irate">₹ 0</string>
-    <string name="find_path">Find path</string>
+    <string name="find_path">Find Fare</string>
     <string name="distance">Distance</string>
 </resources>
