@@ -1,6 +1,7 @@
 package com.example.rahulj.nammaauto;
 
 import android.*;
+import android.Manifest;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
@@ -10,6 +11,8 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
+import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -309,13 +312,13 @@ public class MainActivity extends SampleActivityBase implements OnMapReadyCallba
     public void onMapReady(GoogleMap googleMap) {
 
         mMap = googleMap;
-        LatLng hcmus = new LatLng(12.9716, 77.5946 );
+        LatLng hcmus = new LatLng(12.9716, 77.5946);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(hcmus, 12));
         originMarkers.add(mMap.addMarker(new MarkerOptions()
                 .title("origin")
                 .position(hcmus)));
 
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
@@ -323,9 +326,12 @@ public class MainActivity extends SampleActivityBase implements OnMapReadyCallba
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
-            return;
+
+
         }
         mMap.setMyLocationEnabled(true);
-
     }
+
+
+
 }
